@@ -314,6 +314,10 @@ class userController extends baseController {
       return (ctx.body = yapi.commons.resReturn(null, 400, '邮箱不能为空'));
     }
 
+    if (params.email.indexOf("@deeperse.com") === -1) {
+      return (ctx.body = yapi.commons.resReturn(null, 400, '禁止注册，请联系管理员'));
+    }
+
     if (!params.password) {
       return (ctx.body = yapi.commons.resReturn(null, 400, '密码不能为空'));
     }
